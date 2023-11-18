@@ -8,6 +8,8 @@ public class MarioJump : MonoBehaviour
     public float fallMultiplier = 2.5f; // Factor de caída para un salto más suave
     public float lowJumpMultiplier = 2f; // Factor de caída para un salto más controlado
 
+    bool sePuedeSaltar = false;
+
 
 
     private Rigidbody2D rb;
@@ -22,7 +24,10 @@ public class MarioJump : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            if (sePuedeSaltar == true)
+            {
+                Jump();
+            }
         }
         // Si estás cayendo, aplica el multiplicador de caída para un salto más suave
         if (rb.velocity.y < 0)
@@ -40,5 +45,21 @@ public class MarioJump : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "piso")
+        {
+            sePuedeSaltar = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "piso")
+        {
+            sePuedeSaltar = false;
+        }
     }
 }

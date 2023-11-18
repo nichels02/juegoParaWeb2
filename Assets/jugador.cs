@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class jugador : MonoBehaviour
 {
-    [SerializeField]int vidas = 3;
+    [SerializeField] int vidas = 3;
+    [SerializeField] TMP_Text textoVida;
     public int Vidas
     {
         get { return vidas; }
@@ -20,5 +22,20 @@ public class jugador : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "enemigo")
+        {
+            vidas -= 1;
+            textoVida.text = "Vidas: " + vidas;
+            
+            if (vidas <= 0)
+            {
+                Time.timeScale = 0f;
+            }
+
+        }
     }
 }

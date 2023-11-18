@@ -6,6 +6,7 @@ TagManager:
   tags:
   - piso
   - eliminador
+  - enemigo
   layers:
   - Default
   - TransparentFX
