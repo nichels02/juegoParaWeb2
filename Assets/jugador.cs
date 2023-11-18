@@ -28,6 +28,7 @@ public class jugador : MonoBehaviour
     {
         if (collision.tag == "enemigo")
         {
+            collision.gameObject.tag = "enemigo2";
             vidas -= 1;
             textoVida.text = "Vidas: " + vidas;
             

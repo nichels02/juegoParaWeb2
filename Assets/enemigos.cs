@@ -34,10 +34,6 @@ public class enemigos : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "jugador")
-        {
-
-        }
         if (collision.tag == "eliminador")
         {
             Destroy(this.gameObject);

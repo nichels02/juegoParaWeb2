@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MarioJump : MonoBehaviour
+public class salto : MonoBehaviour
 {
     public float jumpForce = 5f;        // Fuerza de salto
     public float fallMultiplier = 2.5f; // Factor de caída para un salto más suave
@@ -22,7 +22,7 @@ public class MarioJump : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             if (sePuedeSaltar == true)
             {

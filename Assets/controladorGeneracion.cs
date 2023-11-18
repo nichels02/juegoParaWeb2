@@ -70,7 +70,7 @@ public class controladorGeneracion : MonoBehaviour
 
         if (relojCactus > tiempoCactus)
         {
-            GameObject a = Instantiate(cactus, new Vector2(9.83f, - 4.35f), Quaternion.identity);
+            GameObject a = Instantiate(cactus, new Vector2(9.83f, -3.8f ), Quaternion.identity);
             a.GetComponent<enemigos>().SetVelocity(speed);
             relojCactus = 0;
             randomC = Random.Range(0.1f, 3);
@@ -78,15 +78,15 @@ public class controladorGeneracion : MonoBehaviour
         }
         if (relojRino > tiempoRino && SePuedenRinos == true) 
         {
-            GameObject a = Instantiate(rino, new Vector2(9.83f, -4.35f), Quaternion.identity);
-            a.GetComponent<enemigos>().SetVelocity(speed*1.5f);
+            GameObject a = Instantiate(rino, new Vector2(9.83f, -4), Quaternion.identity);
+            a.GetComponent<enemigos>().SetVelocity(speed*2);
             relojRino = 0;
             randomR = Random.Range(3, 7);
             tiempoRino = randomR;
         }
         if (relojPteranodon > tiempoPteranodon && SePuedenPteranodones == true)
         {
-            GameObject a = Instantiate(pteranodon, new Vector2(11.5f, 0), Quaternion.identity);
+            GameObject a = Instantiate(pteranodon, new Vector2(11.5f, 0.5f), Quaternion.identity);
             a.GetComponent<enemigos>().SetVelocity(speed*1.2f);
             relojPteranodon = 0;
             randomP = Random.Range(6, 10);
